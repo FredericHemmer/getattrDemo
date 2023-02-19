@@ -1,7 +1,11 @@
+import arithmetic_int, arithmetic_string
+
 class Arithmetic:
     def __init__(self, a_type):
-        if a_type not in ['INT','STRING']
+        if a_type not in ['INT','STRING']:
             raise ValueError('Invalid arithmetic type)')
+        if a_type == 'INT':
+            a = arithmetic_int.ArithmeticInt(register=None)
 
 
 

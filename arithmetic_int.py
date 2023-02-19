@@ -6,7 +6,7 @@ class ArithmeticInt:
     """Implements arithmetic finctions and returns resulst as string
 
     """
-    def __init__(self):
+    def __init__(self, handler):
         pass
 
     def add (self, a, b):
