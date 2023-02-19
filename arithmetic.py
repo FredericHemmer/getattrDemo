@@ -1,20 +1,19 @@
 import arithmetic_int, arithmetic_string
 
-a_funcs={}
-
 class Arithmetic:
     def __init__(self, a_type):
+        self.methods = {}
         if a_type not in ['INT','STRING']:
             raise ValueError('Invalid arithmetic type)')
         if a_type == 'INT':
             arithmetic_int.ArithmeticInt(register=self._register)
         if a_type == 'STRING':
             arithmetic_string.ArithmeticString(register=self._register)
-        for k,v in a_funcs.items():
+        for k,v in self.methods.items():
             setattr(self, k, v)
 
     def _register (self, _name, _method):
-        a_funcs[_name] = _method
+        self.methods[_name] = _method
 
 
 def main():
