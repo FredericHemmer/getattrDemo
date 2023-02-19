@@ -10,9 +10,9 @@ class ArithmeticInt:
         pass
 
     def add (self, a, b):
-        print(__name__)
+        print('calling:', __name__)
         return a+b
 
     def mul(self, a,b):
-        print(__name__)
+        print('calling:', __name__)
         return a*b
