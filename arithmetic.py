@@ -1,27 +1,31 @@
 import arithmetic_int, arithmetic_string
 
+a_funcs={}
+
 class Arithmetic:
     def __init__(self, a_type):
         if a_type not in ['INT','STRING']:
             raise ValueError('Invalid arithmetic type)')
         if a_type == 'INT':
-            a = arithmetic_int.ArithmeticInt(register=None)
+            arithmetic_int.ArithmeticInt(register=self._register)
+        if a_type == 'STRING':
+            arithmetic_string.ArithmeticString(register=self._register)
+        for k,v in a_funcs.items():
+            setattr(self, k, v)
 
+    def _register (self, _name, _method):
+        a_funcs[_name] = _method
 
 
 def main():
-    import arithmetic_int, arithmetic_string
 
-    a_string = arithmetic_string.ArithmeticString()
-    a_int = arithmetic_int.ArithmeticInt()
-
-    res = a_string.add(3,4)
-    print(res, type(res))
-
-    res = a_int.add(3,4)
-    print(res, type(res))
-
-
+    a_i = Arithmetic('INT')
+    a_s = Arithmetic('STRING')
+    for a in (a_i, a_s):
+        res = a.add(3,40)
+        print(res, f"type: {type(res)}")
+        res = a.mul(7, 3)
+        print(res, f"type: {type(res)}")
 
 if __name__ == '__main__':
     main()
